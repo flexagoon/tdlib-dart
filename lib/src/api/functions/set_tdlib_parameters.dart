@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+
 import '../extensions/data_class_extensions.dart';
 import '../tdapi.dart';
 
@@ -8,55 +9,50 @@ import '../tdapi.dart';
 @immutable
 class SetTdlibParameters extends TdFunction {
   const SetTdlibParameters({
-    required this.useTestDc,
-    required this.databaseDirectory,
-    required this.filesDirectory,
-    required this.databaseEncryptionKey,
-    required this.useFileDatabase,
-    required this.useChatInfoDatabase,
-    required this.useMessageDatabase,
-    required this.useSecretChats,
+    this.useTestDc,
+    this.databaseDirectory,
+    this.filesDirectory,
+    this.useFileDatabase,
+    this.useChatInfoDatabase,
+    this.useMessageDatabase,
+    this.useSecretChats,
     required this.apiId,
     required this.apiHash,
     required this.systemLanguageCode,
     required this.deviceModel,
-    required this.systemVersion,
+    this.systemVersion,
     required this.applicationVersion,
-    required this.enableStorageOptimizer,
+    this.enableStorageOptimizer,
     required this.ignoreFileNames,
   });
 
   /// [useTestDc] Pass true to use Telegram test environment instead of the
   /// production environment
-  final bool useTestDc;
+  final bool? useTestDc;
 
   /// [databaseDirectory] The path to the directory for the persistent database;
   /// if empty, the current working directory will be used
-  final String databaseDirectory;
+  final String? databaseDirectory;
 
   /// [filesDirectory] The path to the directory for storing files; if empty,
   /// database_directory will be used
-  final String filesDirectory;
-
-  /// [databaseEncryptionKey] Encryption key for the database. If the encryption
-  /// key is invalid, then an error with code 401 will be returned
-  final String databaseEncryptionKey;
+  final String? filesDirectory;
 
   /// [useFileDatabase] Pass true to keep information about downloaded and
   /// uploaded files between application restarts
-  final bool useFileDatabase;
+  final bool? useFileDatabase;
 
   /// [useChatInfoDatabase] Pass true to keep cache of users, basic groups,
   /// supergroups, channels and secret chats between restarts. Implies
   /// use_file_database
-  final bool useChatInfoDatabase;
+  final bool? useChatInfoDatabase;
 
   /// [useMessageDatabase] Pass true to keep cache of chats and messages between
   /// restarts. Implies use_chat_info_database
-  final bool useMessageDatabase;
+  final bool? useMessageDatabase;
 
   /// [useSecretChats] Pass true to enable support for secret chats
-  final bool useSecretChats;
+  final bool? useSecretChats;
 
   /// [apiId] Application identifier for Telegram API access, which can be
   /// obtained at https://my.telegram.org
@@ -76,19 +72,19 @@ class SetTdlibParameters extends TdFunction {
 
   /// [systemVersion] Version of the operating system the application is being
   /// run on. If empty, the version is automatically detected by TDLib
-  final String systemVersion;
+  final String? systemVersion;
 
   /// [applicationVersion] Application version; must be non-empty
   final String applicationVersion;
 
   /// [enableStorageOptimizer] Pass true to automatically delete old files in
   /// background
-  final bool enableStorageOptimizer;
+  final bool? enableStorageOptimizer;
 
   /// [ignoreFileNames] Pass true to ignore original file names for downloaded
   /// files. Otherwise, downloaded files are saved under names as close as
   /// possible to the original name
-  final bool ignoreFileNames;
+  final bool? ignoreFileNames;
 
   static const String constructor = 'setTdlibParameters';
 
@@ -97,22 +93,21 @@ class SetTdlibParameters extends TdFunction {
 
   @override
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'use_test_dc': useTestDc,
-        'database_directory': databaseDirectory,
-        'files_directory': filesDirectory,
-        'database_encryption_key': databaseEncryptionKey,
-        'use_file_database': useFileDatabase,
-        'use_chat_info_database': useChatInfoDatabase,
-        'use_message_database': useMessageDatabase,
-        'use_secret_chats': useSecretChats,
+        'use_test_dc': useTestDc ?? false,
+        'database_directory': databaseDirectory ?? '',
+        'files_directory': filesDirectory ?? '',
+        'use_file_database': useFileDatabase ?? false,
+        'use_chat_info_database': useChatInfoDatabase ?? false,
+        'use_message_database': useMessageDatabase ?? false,
+        'use_secret_chats': useSecretChats ?? false,
         'api_id': apiId,
         'api_hash': apiHash,
         'system_language_code': systemLanguageCode,
         'device_model': deviceModel,
-        'system_version': systemVersion,
+        'system_version': systemVersion ?? '',
         'application_version': applicationVersion,
-        'enable_storage_optimizer': enableStorageOptimizer,
-        'ignore_file_names': ignoreFileNames,
+        'enable_storage_optimizer': enableStorageOptimizer ?? false,
+        'ignore_file_names': ignoreFileNames ?? false,
         '@type': constructor,
       };
 
