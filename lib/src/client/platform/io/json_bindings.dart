@@ -70,11 +70,11 @@ class JsonBindings {
 
   String _resolveLibName() {
     if (Platform.isAndroid) {
-      return 'libtdjsonandroid.so';
+      return './libtdjsonandroid.so';
     } else if (Platform.isWindows) {
-      return 'tdjson.dll';
+      return './tdjson.dll';
     } else if (Platform.isLinux) {
-      return 'libtdjson.so';
+      return './libtdjson.so';
     }
     throw UnsupportedError('Unsupported for current platform');
   }
