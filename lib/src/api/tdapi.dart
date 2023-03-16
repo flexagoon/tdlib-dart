@@ -462,7 +462,6 @@ export 'functions/set_chat_title.dart';
 export 'functions/set_commands.dart';
 export 'functions/set_custom_language_pack.dart';
 export 'functions/set_custom_language_pack_string.dart';
-export 'functions/set_database_encryption_key.dart';
 export 'functions/set_default_channel_administrator_rights.dart';
 export 'functions/set_default_group_administrator_rights.dart';
 export 'functions/set_default_message_auto_delete_time.dart';
