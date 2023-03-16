@@ -23,7 +23,7 @@ class SetTdlibParameters extends TdFunction {
     this.systemVersion,
     required this.applicationVersion,
     this.enableStorageOptimizer,
-    required this.ignoreFileNames,
+    this.ignoreFileNames,
   });
 
   /// [useTestDc] Pass true to use Telegram test environment instead of the
