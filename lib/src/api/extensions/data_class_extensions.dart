@@ -18646,8 +18646,6 @@ extension SetTdlibParametersDataClassExtensions on SetTdlibParameters {
           const DeepCollectionEquality()
               .equals(other.filesDirectory, filesDirectory) &&
           const DeepCollectionEquality()
-              .equals(other.databaseEncryptionKey, databaseEncryptionKey) &&
-          const DeepCollectionEquality()
               .equals(other.useFileDatabase, useFileDatabase) &&
           const DeepCollectionEquality()
               .equals(other.useChatInfoDatabase, useChatInfoDatabase) &&
@@ -18675,7 +18673,6 @@ extension SetTdlibParametersDataClassExtensions on SetTdlibParameters {
         const DeepCollectionEquality().hash(useTestDc),
         const DeepCollectionEquality().hash(databaseDirectory),
         const DeepCollectionEquality().hash(filesDirectory),
-        const DeepCollectionEquality().hash(databaseEncryptionKey),
         const DeepCollectionEquality().hash(useFileDatabase),
         const DeepCollectionEquality().hash(useChatInfoDatabase),
         const DeepCollectionEquality().hash(useMessageDatabase),
@@ -18905,18 +18902,6 @@ extension GetCurrentStateDataClassExtensions on GetCurrentState {
   int get overriddenHashCode => runtimeType.hashCode;
 }
 
-extension SetDatabaseEncryptionKeyDataClassExtensions
-    on SetDatabaseEncryptionKey {
-  bool overriddenEquality(Object other) =>
-      identical(this, other) ||
-      (other.runtimeType == runtimeType &&
-          other is SetDatabaseEncryptionKey &&
-          const DeepCollectionEquality()
-              .equals(other.newEncryptionKey, newEncryptionKey));
-
-  int get overriddenHashCode => Object.hashAll(
-      [runtimeType, const DeepCollectionEquality().hash(newEncryptionKey)]);
-}
 
 extension GetPasswordStateDataClassExtensions on GetPasswordState {
   bool overriddenEquality(Object other) =>

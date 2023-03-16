@@ -21663,7 +21663,6 @@ extension SetTdlibParametersExtensions on SetTdlibParameters {
     bool? useTestDc,
     String? databaseDirectory,
     String? filesDirectory,
-    String? databaseEncryptionKey,
     bool? useFileDatabase,
     bool? useChatInfoDatabase,
     bool? useMessageDatabase,
@@ -21681,8 +21680,6 @@ extension SetTdlibParametersExtensions on SetTdlibParameters {
         useTestDc: useTestDc ?? this.useTestDc,
         databaseDirectory: databaseDirectory ?? this.databaseDirectory,
         filesDirectory: filesDirectory ?? this.filesDirectory,
-        databaseEncryptionKey:
-            databaseEncryptionKey ?? this.databaseEncryptionKey,
         useFileDatabase: useFileDatabase ?? this.useFileDatabase,
         useChatInfoDatabase: useChatInfoDatabase ?? this.useChatInfoDatabase,
         useMessageDatabase: useMessageDatabase ?? this.useMessageDatabase,
@@ -21818,15 +21815,6 @@ extension ConfirmQrCodeAuthenticationExtensions on ConfirmQrCodeAuthentication {
   }) =>
       ConfirmQrCodeAuthentication(
         link: link ?? this.link,
-      );
-}
-
-extension SetDatabaseEncryptionKeyExtensions on SetDatabaseEncryptionKey {
-  SetDatabaseEncryptionKey copyWith({
-    String? newEncryptionKey,
-  }) =>
-      SetDatabaseEncryptionKey(
-        newEncryptionKey: newEncryptionKey ?? this.newEncryptionKey,
       );
 }
 

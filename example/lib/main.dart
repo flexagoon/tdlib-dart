@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
@@ -156,7 +157,6 @@ class _MyAppState extends State<MyApp> {
           applicationVersion: '1.0.0',
           apiId: getApiId(),
           apiHash: getApiHash(),
-          databaseEncryptionKey: '',
         ),
       );
     } else if (authorizationState is td.AuthorizationStateWaitPhoneNumber) {
